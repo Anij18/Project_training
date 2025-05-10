@@ -30,7 +30,7 @@ class TestAddGroup(unittest.TestCase):
         self.open_conact_page(wd)
         self.create_contact(wd, Contact(surname=u"", name=u"", patronymic=u"", nickname=u"", company=u"",
                             addresscompany=u"", phonehome="", mobile="", email="",
-                            bday="2", bmonth="January", byear="1993"))
+                            bday="", bmonth="", byear=""))
         self.return_to_contact_page(wd)
         self.logout(wd)
 
@@ -69,11 +69,7 @@ class TestAddGroup(unittest.TestCase):
         wd.find_element_by_name("email").clear()
         wd.find_element_by_name("email").send_keys(contact.email)
         wd.find_element_by_name("bday").click()
-        Select(wd.find_element_by_name("bday")).select_by_visible_text(contact.bday)
-        wd.find_element_by_xpath("//option[@value='2']").click()
         wd.find_element_by_name("bmonth").click()
-        Select(wd.find_element_by_name("bmonth")).select_by_visible_text(contact.bmonth)
-        wd.find_element_by_xpath("//option[@value='January']").click()
         wd.find_element_by_name("byear").click()
         wd.find_element_by_name("byear").clear()
         wd.find_element_by_name("byear").send_keys(contact.byear)
